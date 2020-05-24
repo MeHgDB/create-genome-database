@@ -1,5 +1,7 @@
 # Preparing Genbank Assembly File for Queued Submissions
 
+Searching all publicly available bacterial and archaeal genomes in Genbank accessed by the metadata file collected from https://www.ncbi.nlm.nih.gov/genome/browse#!/prokaryotes/ . 
+
 The raw genbank metadata file was downloaded, and filtered as such:
 ```
 awk -F "," '{print $6"\t"$15}' 2019-08-15-all-genbank-genomes.csv | tail -n +2 | sed 's/"//g' | awk -F "/" '{print $1"/"$2"/"$3"/"$4"/"$5"/"$6"/"$7"/"$8"/"$9"/"$10"/"$10"_genomic.fna.gz"}' > 2018-08-16-genbank-accessions-ftp-list.tsv
